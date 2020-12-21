@@ -1,7 +1,9 @@
-import {Rerender} from "../rerender";
+let Rerender = () => {
+    console.log('state changed');
+}
 
 let state = {
-    DialogComp:  {
+    DialogComp: {
         DialogData: [
             {id: '1', name: 'Kykareky'},
             {id: '2', name: 'MC PETYA'},
@@ -29,10 +31,10 @@ let state = {
     },
     NewsComp: {
         NewsItems: [
-            {NewsID: '1', Content:'Ybili cheloveka'},
-            {NewsID: '2', Content:'Ybili cheloveka'},
-            {NewsID: '3', Content:'Ybili cheloveka'},
-            {NewsID: '4', Content:'Ybili cheloveka'}
+            {NewsID: '1', Content: 'Ybili cheloveka'},
+            {NewsID: '2', Content: 'Ybili cheloveka'},
+            {NewsID: '3', Content: 'Ybili cheloveka'},
+            {NewsID: '4', Content: 'Ybili cheloveka'}
         ]
     }
 }
@@ -52,10 +54,9 @@ export let AddPost = (postMessage) => {
     Rerender(state);
 }
 
-
-
-
-
+export let subscribe = (observer) => {
+    Rerender = observer;
+}
 
 
 export default state;

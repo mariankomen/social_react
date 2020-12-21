@@ -6,10 +6,11 @@ import {AddPost} from "../../../../redux/state";
 const Post_Add = (props) => {
 
     let NewPostElement = React.createRef();
-    let PostClickAdd = (props) => {
+    let PostClickAdd = () => {
         let text = NewPostElement.current.value;
         AddPost(text);
         props.UpdateText('');
+        console.log(text);
     }
     let OnChangeFunc = () => {
         let text = NewPostElement.current.value;

@@ -28,7 +28,8 @@ const Content = (props) => {
                       textValue={props.textValue}
                       UpdateText={props.UpdateText}
             />
-            <Post PostItems={props.PostItems} AddPost={props.AddPost}/>
+            <Post PostItems={props.PostItems}
+                  AddPost={props.AddPost}/>
         </div>
     );
 }
