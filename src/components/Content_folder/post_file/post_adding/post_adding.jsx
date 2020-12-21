@@ -14,6 +14,7 @@ const Post_Add = (props) => {
 
     return (
         <div className={post_ad.Post}>
+            {/*Text Area comm*/}
             <textarea className={post_ad.textar} ref={NewPostElement}></textarea>
             <div>
                 <button className={post_ad.btn} onClick={PostClickAdd}>Add</button>
