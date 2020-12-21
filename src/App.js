@@ -20,7 +20,10 @@ function App(props) {
             {/*       <Content />*/}
             <div class='app-wrapper-content'>
                 <Route path='/dialogs' render={ () => <Dialogs Messagess={props.state.DialogComp.Messagess} DialogData={props.state.DialogComp.DialogData}/>}/>
-                <Route path='/content' render={ () => <Content PostItems={props.state.PostComp.PostItems} AddPost={props.state.AddPost}/>}/>
+                <Route path='/content' render={ () => <Content PostItems={props.state.PostComp.PostItems}
+                                                               AddPost={props.state.AddPost}
+                                                               textValue={props.state.PostComp.Textvalue}
+                                                               UpdateText={props.UpdateText}/>}/>
                 <Route path='/music' render={ () => <Music/>}/>
                 <Route path='/news' render= { () => <News NewsItems={props.state.NewsComp.NewsItems}/>}/>
                 <Route path='/settings' component={Settings}/>

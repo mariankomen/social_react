@@ -24,7 +24,8 @@ let state = {
             {name: 'Stepan', cont: 'React js slishkom slojno', like: '12'},
             {name: 'Stepan', cont: 'React js slishkom slojno', like: '12'},
             {name: 'Stepan', cont: 'React js slishkom slojno', like: '12'}
-        ]
+        ],
+        Textvalue: 'write here: '
     },
     NewsComp: {
         NewsItems: [
@@ -36,6 +37,11 @@ let state = {
     }
 }
 
+export let UpdateText = (textValue) => {
+    state.PostComp.Textvalue = textValue;
+    Rerender(state);
+}
+
 export let AddPost = (postMessage) => {
     let newPost = {
         name: 'Kakashka',
@@ -45,6 +51,8 @@ export let AddPost = (postMessage) => {
     state.PostComp.PostItems.push(newPost);
     Rerender(state);
 }
+
+
 
 
 
