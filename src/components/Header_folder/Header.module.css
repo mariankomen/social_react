@@ -1,0 +1,12 @@
+.item {
+    width: 100%;
+    grid-area: h;
+    background-color: #656565;
+    border-bottom: 1px solid rebeccapurple;
+}
+.item {
+    display: inline-block;
+}
+.item img {
+    width: 100px;
+}

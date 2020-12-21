@@ -1,0 +1,12 @@
+.batya {
+    background-color: darkgray;
+}
+
+
+.news_block {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    background-color: burlywood;
+    margin: 20px;
+}
+

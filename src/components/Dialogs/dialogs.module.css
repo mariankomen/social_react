@@ -1,0 +1,32 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.users {
+    background-color: #234234;
+    padding: 20px;
+}
+
+.user_style {
+    color: chartreuse;
+    padding: 5px;
+}
+.message {
+    color: red;
+    padding: 15px;
+    padding-top: 25px;
+}
+
+.user_style a {
+    text-decoration: none;
+    color: red;
+}
+.user_style a:hover {
+    background-color: rebeccapurple;
+    transition: 0.2s;
+}
+.user_style a.active {
+    color: green;
+    padding: 5px;
+}

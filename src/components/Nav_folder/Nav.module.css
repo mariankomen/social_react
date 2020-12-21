@@ -1,0 +1,18 @@
+.nav {
+    grid-area: n;
+    background-color: red;
+}
+.item a{
+    color: white;
+}
+.item a {
+    text-decoration: none;
+    margin: 25px 25px 25px 25px;
+}
+.item a:hover {
+    background-color: burlywood;
+    transition: 0.3s;
+}
+.item a.active {
+    color: black;
+}
