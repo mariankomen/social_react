@@ -24,12 +24,10 @@ const Content = (props) => {
     return (
         <div className='content'>
             <Profile_Post/>
-            <Post_Add AddPost={props.AddPost}
+            <Post_Add dispatch={props.dispatch}
                       textValue={props.textValue}
-                      UpdateText={props.UpdateText}
             />
-            <Post PostItems={props.PostItems}
-                  AddPost={props.AddPost}/>
+            <Post PostItems={props.PostItems}/>
         </div>
     );
 }

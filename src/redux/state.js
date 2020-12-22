@@ -1,8 +1,3 @@
-let Rerender = () => {
-    console.log('state changed');
-}
-
-
 let store = {
     _state: {
         DialogComp: {
@@ -40,29 +35,45 @@ let store = {
             ]
         }
     },
+    subscribe(observer){
+        this.Rerender = observer;
+    },
+    Rerender(){
+        console.log('state changed');
+    },
+
     GetState(){
         return this._state;
     },
 
-    UpdateText(textValue){
-        this._state.PostComp.Textvalue = textValue;
-        Rerender(this._state);
-    },
-    AddPost(postMessage) {
-        let newPost = {
-            name: 'Kakashka',
-            cont: postMessage,
-            like: 0
-        };
-        this._state.PostComp.PostItems.push(newPost);
-        Rerender(this._state);
-    },
-    subscribe(observer){
-        Rerender = observer;
-    },
-    Rerender(){
-        console.log('state changed');
+    // UpdateText(textValue){
+    //     this._state.PostComp.Textvalue = textValue;
+    //     this.Rerender(this._state);
+    // },
+    // AddPost(postMessage) {
+    //     let newPost = {
+    //         name: 'Kakashka',
+    //         cont: postMessage,
+    //         like: 0
+    //     };
+    //     this._state.PostComp.PostItems.push(newPost);
+    //     this.Rerender(this._state);
+    // },
+    dispatch(action){
+        if(action.type === "ADD-POST"){
+            let newPost = {
+                name: 'Kakashka',
+                cont: action.postMessage,
+                like: 0
+            };
+            this._state.PostComp.PostItems.push(newPost);
+            this.Rerender(this._state);
+        } else if(action.type === "UPDATE-TEXT"){
+            this._state.PostComp.Textvalue = action.textValue;
+            this.Rerender(this._state);
+        }
     }
+
 }
 
 export default store;

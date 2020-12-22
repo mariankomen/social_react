@@ -22,12 +22,13 @@ function App(props) {
                 <Route path='/dialogs' render={ () => <Dialogs Messagess={props.state.DialogComp.Messagess}
                                                                DialogData={props.state.DialogComp.DialogData}/>}/>
                 <Route path='/content' render={ () => <Content PostItems={props.state.PostComp.PostItems}
-                                                               AddPost={props.AddPost}
+                                                               dispatch={props.dispatch}
                                                                textValue={props.state.PostComp.Textvalue}
-                                                               UpdateText={props.UpdateText}/>}/>
+                                                               />}/>
                 <Route path='/music' render={ () => <Music/>}/>
                 <Route path='/news' render= { () => <News NewsItems={props.state.NewsComp.NewsItems}/>}/>
                 <Route path='/settings' component={Settings}/>
+                {/*asdfa*/}
             </div>
         </div>
         </BrowserRouter>

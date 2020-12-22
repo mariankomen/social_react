@@ -7,20 +7,17 @@ const Post_Add = (props) => {
     let NewPostElement = React.createRef();
     let PostClickAdd = () => {
         let text = NewPostElement.current.value;
-        props.AddPost(text);
-        props.UpdateText('');
-        console.log(text);
+        props.dispatch({type: "ADD-POST", postMessage: text});
+        props.dispatch({type: "UPDATE-TEXT",textValue: ''});
     }
     let OnChangeFunc = () => {
         let text = NewPostElement.current.value;
-        props.UpdateText(text);
-        console.log(text);
+        props.dispatch({type: "UPDATE-TEXT",textValue: text});
     }
 
 
     return (
         <div className={post_ad.Post}>
-            {/*Text Area comm*/}
             <textarea className={post_ad.textar} onChange={OnChangeFunc} ref={NewPostElement} value={props.textValue}/>
             <div>
                 <button className={post_ad.btn} onClick={PostClickAdd}>Add</button>

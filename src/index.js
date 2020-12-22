@@ -9,8 +9,7 @@ let Rerender = () => {
     ReactDOM.render(
         <React.StrictMode>
             <App state={store.GetState()}
-                 AddPost={store.AddPost.bind(store)}
-                 UpdateText={store.UpdateText.bind(store)}/>
+                 dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
