@@ -1,6 +1,5 @@
 import React from 'react';
 import post_ad from '../post_adding/post_adding_style.module.css';
-import {AddPost} from "../../../../redux/state";
 
 
 const Post_Add = (props) => {
@@ -8,7 +7,7 @@ const Post_Add = (props) => {
     let NewPostElement = React.createRef();
     let PostClickAdd = () => {
         let text = NewPostElement.current.value;
-        AddPost(text);
+        props.AddPost(text);
         props.UpdateText('');
         console.log(text);
     }

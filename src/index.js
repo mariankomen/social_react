@@ -1,23 +1,24 @@
-import state, {subscribe} from "./redux/state";
+import store from "./redux/state";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {AddPost, UpdateText} from "./redux/state";
 
 
-let Rerender = (state) => {
+let Rerender = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} AddPost={AddPost} UpdateText={UpdateText}/>
+            <App state={store.GetState()}
+                 AddPost={store.AddPost.bind(store)}
+                 UpdateText={store.UpdateText.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-Rerender(state);
+Rerender(store._state);
 
-subscribe(Rerender);
+store.subscribe(Rerender);
 
 
 // If you want to start measuring performance in your app, pass a function

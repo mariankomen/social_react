@@ -40,9 +40,13 @@ let store = {
             ]
         }
     },
+    GetState(){
+        return this._state;
+    },
+
     UpdateText(textValue){
-        state.PostComp.Textvalue = textValue;
-        Rerender(state);
+        this._state.PostComp.Textvalue = textValue;
+        Rerender(this._state);
     },
     AddPost(postMessage) {
         let newPost = {
@@ -50,11 +54,14 @@ let store = {
             cont: postMessage,
             like: 0
         };
-        state.PostComp.PostItems.push(newPost);
-        Rerender(state);
+        this._state.PostComp.PostItems.push(newPost);
+        Rerender(this._state);
     },
     subscribe(observer){
         Rerender = observer;
+    },
+    Rerender(){
+        console.log('state changed');
     }
 }
 

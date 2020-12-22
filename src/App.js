@@ -22,7 +22,7 @@ function App(props) {
                 <Route path='/dialogs' render={ () => <Dialogs Messagess={props.state.DialogComp.Messagess}
                                                                DialogData={props.state.DialogComp.DialogData}/>}/>
                 <Route path='/content' render={ () => <Content PostItems={props.state.PostComp.PostItems}
-                                                               AddPost={props.state.AddPost}
+                                                               AddPost={props.AddPost}
                                                                textValue={props.state.PostComp.Textvalue}
                                                                UpdateText={props.UpdateText}/>}/>
                 <Route path='/music' render={ () => <Music/>}/>
