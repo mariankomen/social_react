@@ -15,7 +15,7 @@ let Rerender = () => {
         document.getElementById('root')
     );
 }
-
+// bind()
 Rerender(store._state);
 
 store.subscribe(Rerender);
