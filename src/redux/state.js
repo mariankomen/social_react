@@ -57,6 +57,6 @@ export let AddPost = (postMessage) => {
 export let subscribe = (observer) => {
     Rerender = observer;
 }
-
+// hello git
 
 export default state;
