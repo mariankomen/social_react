@@ -30,3 +30,11 @@
     color: green;
     padding: 5px;
 }
+.btn_otp {
+    width:  80px;
+    padding: 5px;
+    background-color: darkgray;
+}
+.btn_otp:hover {
+    cursor: pointer;
+}

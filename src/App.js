@@ -7,6 +7,7 @@ import Music from "./components/Music_folder/Music";
 import News from "./components/News_folde/News";
 import Settings from "./components/Settings_folder/Settings"
 import {BrowserRouter, Route} from "react-router-dom";
+import store from "./redux/state";
 
 
 
@@ -19,8 +20,7 @@ function App(props) {
             <Navbar/>
             {/*       <Content />*/}
             <div class='app-wrapper-content'>
-                <Route path='/dialogs' render={ () => <Dialogs Messagess={props.state.DialogComp.Messagess}
-                                                               DialogData={props.state.DialogComp.DialogData}/>}/>
+                <Route path='/dialogs' render={ () => <Dialogs store={props.store}/>}/>
                 <Route path='/content' render={ () => <Content PostItems={props.state.PostComp.PostItems}
                                                                dispatch={props.dispatch}
                                                                textValue={props.state.PostComp.Textvalue}

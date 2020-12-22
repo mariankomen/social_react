@@ -1,6 +1,10 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_TEXT = "UPDATE-TEXT";
 
+const UPDATE_MESSAGE = "UPDATE_MESSAGE";
+const ADD_MESSAGE = "ADD_MESSAGE";
+
+
 let store = {
     _state: {
         DialogComp: {
@@ -17,7 +21,8 @@ let store = {
                 {id: '3', message: 'how are you?'},
                 {id: '4', message: 'm fine and you'},
                 {id: '5', message: 'm fine and you'}
-            ]
+            ],
+            NewMessage: ''
         },
         PostComp: {
             PostItems: [
@@ -44,7 +49,6 @@ let store = {
     Rerender() {
         console.log('state changed');
     },
-
     GetState() {
         return this._state;
     },
@@ -57,15 +61,27 @@ let store = {
             };
             this._state.PostComp.PostItems.push(newPost);
             this.Rerender(this._state);
-        } else {
-
-            if (action.type === UPDATE_TEXT) {
-                this._state.PostComp.Textvalue = action.textValue;
-                this.Rerender(this._state);
-            }
+        } else if (action.type === UPDATE_TEXT) {
+            this._state.PostComp.Textvalue = action.textValue;
+            this.Rerender(this._state);
+        } else if (action.type === UPDATE_MESSAGE) {
+            this._state.DialogComp.NewMessage = action.NewMessageValue;
+            this.Rerender(this._state);
+        } else if (action.type === ADD_MESSAGE) {
+            let newMessage = this._state.DialogComp.NewMessage;
+            this._state.DialogComp.NewMessage = '';
+            this._state.DialogComp.Messagess.push({id: 6, message: newMessage}); //пушимо в Messagess, бо воно нам рендериться
+            this.Rerender(this._state);
         }
     }
+}
 
+export const UpdateMessageActionCreator = (text) => {
+    return {type: UPDATE_MESSAGE, NewMessageValue: text}
+}
+
+export const AddMessageActionCreator = () => {
+    return {type: ADD_MESSAGE}
 }
 
 export const AddPostActionCreator = (text) => {
