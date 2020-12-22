@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_TEXT = "UPDATE-TEXT";
+
 let store = {
     _state: {
         DialogComp: {
@@ -35,32 +38,18 @@ let store = {
             ]
         }
     },
-    subscribe(observer){
+    subscribe(observer) {
         this.Rerender = observer;
     },
-    Rerender(){
+    Rerender() {
         console.log('state changed');
     },
 
-    GetState(){
+    GetState() {
         return this._state;
     },
-
-    // UpdateText(textValue){
-    //     this._state.PostComp.Textvalue = textValue;
-    //     this.Rerender(this._state);
-    // },
-    // AddPost(postMessage) {
-    //     let newPost = {
-    //         name: 'Kakashka',
-    //         cont: postMessage,
-    //         like: 0
-    //     };
-    //     this._state.PostComp.PostItems.push(newPost);
-    //     this.Rerender(this._state);
-    // },
-    dispatch(action){
-        if(action.type === "ADD-POST"){
+    dispatch(action) {
+        if (action.type === ADD_POST) {
             let newPost = {
                 name: 'Kakashka',
                 cont: action.postMessage,
@@ -68,12 +57,23 @@ let store = {
             };
             this._state.PostComp.PostItems.push(newPost);
             this.Rerender(this._state);
-        } else if(action.type === "UPDATE-TEXT"){
-            this._state.PostComp.Textvalue = action.textValue;
-            this.Rerender(this._state);
+        } else {
+
+            if (action.type === UPDATE_TEXT) {
+                this._state.PostComp.Textvalue = action.textValue;
+                this.Rerender(this._state);
+            }
         }
     }
 
+}
+
+export const AddPostActionCreator = (text) => {
+    return {type: ADD_POST, postMessage: text}
+}
+
+export const UpdateTextActionCreator = (text) => {
+    return {type: UPDATE_TEXT, textValue: text}
 }
 
 export default store;
