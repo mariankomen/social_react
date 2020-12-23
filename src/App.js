@@ -28,7 +28,7 @@ function App(props) {
                 <Route path='/music' render={ () => <Music/>}/>
                 <Route path='/news' render= { () => <News NewsItems={props.state.NewsComp.NewsItems}/>}/>
                 <Route path='/settings' component={Settings}/>
-                {/*asdfa*/}
+                {/*slozhno pizda*/}
             </div>
         </div>
         </BrowserRouter>
